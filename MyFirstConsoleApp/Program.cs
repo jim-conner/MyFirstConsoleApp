@@ -10,13 +10,19 @@ namespace MyFirstConsoleApp
             string name;
 
             //get data from a user
-            //Console.ReadLine();
-            //if you just run app with ^^ line 13
-            //app will just wait for user input
-            //and won't run line 18 to prompt user
-
             Console.WriteLine("Please type in your name...");
             name = Console.ReadLine();
+            //Console.ReadLine() --> if you just run app with that
+            //app will just wait for user input and won't prompt user
+
+            Console.WriteLine($"Hiya, {name}");
+            //string interpolation in c# ^^
+
+            Console.WriteLine("Hiya," + name);
+            //string concatenation ^
+
+            //string formatting
+            Console.WriteLine(string.Format("Hiya, {0}, {1}, {2}", name));
 
             name = "Jimbo";
             //name = 7; this will not work bc static types
@@ -70,8 +76,39 @@ namespace MyFirstConsoleApp
             {
                 Console.WriteLine(student);
             }
+
+            //CONTROL FLOW if/then, ternary (not technically supposed to control flow)
+            //... switch, foreach, for, etc
             //if blocks in ccsharp same as js but no triple equality
-            //csharp one equal for set and two for equality
+            //csharp one equal = for set and two == for equality
+
+            //if statement
+            if (name == "Jim")
+            {
+                Console.WriteLine("Hey it's me!");
+            }
+            else
+            {
+                Console.WriteLine("Pas moi");
+            }
+
+            //ternary - idea is to change indv value not control flow
+            //you're executing one line of code'
+            var greeting = name == "Jim" ? "It's you." : "It's not you";
+
+            //anonymous types
+            var jimbo = new { Name = "Jimbo", IsTeacher = false };
+
+            //doesn't work, anonymous types don't allow for modification (immutable)
+            //jimbo.Name = "Steve";
+
+            //objects break the rules sometimes bc of being a ref type
+            object animalType = "Doggo";
+            animalType = 45;
+            animalType = new string[5];
+
+            //boxing moves values to the heap
+            //boxing is bad - be aware that it's possible to break our strict rules
         }
     }
 }
